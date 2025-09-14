@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1><%= blog.title %></h1>
+        <button class="make-post-button">Create post</button>
+    </div>
+
+    <div class="make-post">
+    <h2>Make a post!</h2>
+    <form action="/submit-post" method="post">
+        <label for="author">Name: </label><br>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <label for="title">Title of post: </label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="content">Content: </label><br>
+        <textarea id="content" name="content" required></textarea><br>
+
+        <button type="submit">Make post!</button>
+        <button class="close-post-field">Close</button>
+    </form>
+</div>
+
+    <div class="container">
+
+            <% blog.posts.forEach(post => { %>
+                <div class="post">
+                        <h2 class="title"><%= post.title %></h2>
+                        <h4 class="author"> Post by: <%= post.author %> </h4>
+                        <p class="content"> <%= post.content %> </p>
+                        <button class="delete-button" post-id="<%=post.id%>">Delete</button>
+                        <button class="edit-button" post-id="<%=post.id%>">Edit</button>
+                </div>
+            <% }) %>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

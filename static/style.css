@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    flex: 1;
+    padding: 12px;
+
+    justify-content: space-between;
+    background-color: lightgray;
+    height: 80px;
+}
+
+.container {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+p, label, h1, h2 {
+    font-family: sans-serif;
+}
+
+.make-post {
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    border: solid 2px gray;
+    border-radius: 14px;
+    width: 90%;
+    height: 90%;
+
+    padding: 12px;
+
+}
+
+.post {
+    padding: 12px;
+    border: solid 2px;
+    border-radius: 14px;
+    border-color: lightgray;
+    overflow-wrap: break-word;
+    max-height: 350px;
+    overflow: auto;
+}
+
+button {
+    border: solid 1px;
+    border-radius: 12px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input[type="text"],
+textarea {
+    border-radius: 12px;
+    border: solid 1px;
+    margin: 10px 0px;
+}
+
+input[type="text"] {
+    height: 50px;
+    width: 100%;
+}
+
+textarea {
+    height: 100px;
+    width: 100%;
+}
