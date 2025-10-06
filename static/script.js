@@ -72,7 +72,7 @@
                     // Generate HTML for form
                     editForm.innerHTML = `
                     <label for="title"></label><br>
-                    <input type="text" id="title" name="title" value=${button.parentElement.querySelector('.title').textContent}><br><br>
+                    <input type="text" id="title" name="title" value="${button.parentElement.querySelector('.title').textContent}"><br><br>
 
                     <label for="content">Content: </label><br>
                     <textarea id="content" name="content">${button.parentElement.querySelector('.content').textContent}</textarea><br><br>

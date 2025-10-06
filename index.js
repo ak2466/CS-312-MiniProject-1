@@ -8,27 +8,31 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
 
+// Define view engine and views dir
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Add middleware
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('static'))
-
 app.use(express.json());
 
+// Define blog
 const blog = {
-    title: "My Blog!",
+    title: "My Blog.",
     posts: []
 };
 
+// Create id variable (for auto-incrementing)
+let id = 0
+
+// Define get route
 app.get('/', (req, res) => {
     // Correct way to render the view
     res.render('index.ejs', { blog: blog });
 });
 
-let id = 0
-
+// Define post route (post creation)
 app.post("/submit-post", (req, res) => {
     const newPost = {
         id: id++,
@@ -41,6 +45,7 @@ app.post("/submit-post", (req, res) => {
     res.redirect('/');
 });
 
+// Define delete route
 app.delete("/posts/:id", (req, res) => {
     const postID = parseInt(req.params.id);
 
@@ -61,6 +66,7 @@ app.delete("/posts/:id", (req, res) => {
     res.status(200).send('Post successfully deleted.')
 })
 
+// Define edit route
 app.patch("/posts/:id", (req, res) => {
     const postID = parseInt(req.params.id);
     
